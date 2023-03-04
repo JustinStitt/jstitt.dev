@@ -1,8 +1,10 @@
 <script>
+  import Navbar from "./lib/Navbar.svelte";
   console.log("loaded");
 </script>
 
-<h2>In development 🔧 Check back later.</h2>
+<Navbar />
+<h2>🔧 In development 🔧<br /> Check back later.</h2>
 
 <style>
   h2 {
