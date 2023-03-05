@@ -6,6 +6,7 @@
 
   color-scheme: light dark;
   background-color: var(--kanagawa-sumiInk0);
+  color: var(--kanagawa-fujiWhite);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -42,9 +43,9 @@ h1 {
 }
 
 #app {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1.4rem;
   text-align: center;
 }
 
@@ -60,22 +61,21 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--kanagawa-oniViolet);
 }
-button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: var(--kanagawa-sumiInk1);
+    background-color: var(--kanagawa-oldWhite);
   }
   a:hover {
-    color: #747bff;
+    color: var(--kanagawa-oniViolet);
   }
   button {
-    background-color: #f9f9f9;
+    background-color: var(--kanagawa-oldWhite);
   }
 }

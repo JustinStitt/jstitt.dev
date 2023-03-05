@@ -29,7 +29,8 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: var(--kanagawa-autumnGreen);
+    background-color: var(--kanagawa-oniViolet);
+    z-index: 1024;
   }
 
   li {
