@@ -11,7 +11,7 @@
   };
 </script>
 
-<div class="dimmer" on:click={dimmerClick} />
+<div class="dimmer" on:click={dimmerClick} on:keydown={dimmerClick} />
 <div class="main">
   <h2>Prove that you're Human...</h2>
   <button on:click={completeTask}>Complete Task</button>
@@ -24,9 +24,9 @@
     height: 100%;
     top: 0;
     left: 0;
-    background-color: #333;
+    background-color: var(--kanagawa-sumiInk1);
     filter: opacity(0.6);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px) brightness(10%);
   }
 
   .main {
