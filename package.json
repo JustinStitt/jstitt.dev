@@ -30,5 +30,5 @@
 		"tailwindcss": "^3.4.9",
 		"vite": "^5.0.3"
 	},
-  "engines": {"node": ">=18.0.0"}
+  "engines": {"node": ">=22.0.0"}
 }
