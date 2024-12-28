@@ -10,6 +10,7 @@ export default {
   theme: {
     extend: {}
   },
+  darkMode: 'selector',
 
   plugins: [typography, forms, containerQueries, aspectRatio]
 };
