@@ -4,22 +4,10 @@
 	// Blog posts data
 	const posts = [
 		{
-			title: 'Getting Started with Svelte 5',
-			excerpt: 'Learn about the new features in Svelte 5 and how to use them.',
-			date: '2024-01-15',
-			readTime: '5 min read'
-		},
-		{
-			title: 'Building Responsive Layouts',
-			excerpt: 'Tips and tricks for creating responsive layouts with Tailwind CSS.',
-			date: '2024-01-10',
-			readTime: '3 min read'
-		},
-		{
-			title: 'Modern Web Development',
-			excerpt: 'Exploring modern web development practices and tools.',
-			date: '2024-01-05',
-			readTime: '4 min read'
+			title: 'Coming soon',
+			excerpt: '...',
+			date: '2025-??-??',
+			readTime: 'x min read'
 		}
 	];
 </script>

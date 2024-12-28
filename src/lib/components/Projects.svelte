@@ -4,20 +4,20 @@
 	// Projects data
 	const projects = [
 		{
-			title: 'Project One',
-			description: 'A beautiful and responsive web application',
+			title: 'wip',
+			description: 'wip',
 			image: 'favicon.png',
 			link: 'https://example.com'
 		},
 		{
-			title: 'Project Two',
-			description: 'Mobile app built with React Native',
+			title: 'wip',
+			description: 'wip',
 			image: 'favicon.png',
 			link: 'https://example.com'
 		},
 		{
-			title: 'Project Three',
-			description: 'E-commerce platform with modern stack',
+			title: 'wip',
+			description: 'wip',
 			image: 'favicon.png',
 			link: 'https://example.com'
 		}
