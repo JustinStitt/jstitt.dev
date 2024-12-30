@@ -8,7 +8,7 @@
 
 	// Navigation links
 	const links = [
-		{ href: '#home', label: 'Home' },
+		{ href: '/', label: 'Home' },
 		{ href: '#projects', label: 'Projects' },
 		{ href: '#blog', label: 'Blog' }
 	];
@@ -22,13 +22,13 @@
 		<ul class="flex h-16 items-center justify-center gap-8">
 			<div class="mr-auto flex min-w-96">
 				{#key name}
-					<a class="font-mono text-3xl font-bold" href="#home" in:fade>
+					<a class="font-mono text-3xl font-bold" href="/" in:fade>
 						{name}
 					</a>
 				{/key}
 			</div>
 			{#each links as link}
-				<li>
+				<li class="list-none">
 					<a
 						href={link.href}
 						class="text-lg font-medium transition-colors hover:text-zinc-600 dark:hover:text-zinc-400"

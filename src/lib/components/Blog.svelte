@@ -7,7 +7,8 @@
 			title: 'Coming soon',
 			excerpt: '...',
 			date: '2025-??-??',
-			readTime: 'x min read'
+			readTime: 'x min read',
+			slug: 1
 		}
 	];
 </script>
@@ -27,7 +28,7 @@
 				<h3 class="mb-2 text-xl font-semibold">{post.title}</h3>
 				<p class="mb-4 text-zinc-600 dark:text-zinc-400">{post.excerpt}</p>
 				<a
-					href="#"
+					href={`/blog/${post.slug}`}
 					class="inline-flex items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
 				>
 					Read More
