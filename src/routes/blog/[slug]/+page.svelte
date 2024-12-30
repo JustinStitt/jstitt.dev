@@ -9,7 +9,7 @@
 	<h1 class="text-2xl">
 		Blog #{data.slug}
 	</h1>
-	<div class="markdown-body">
+	<div class="markdown-body blog-content">
 		{@html data.html}
 	</div>
 </main>
