@@ -1,5 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
+	import Saos from 'saos';
 	import Hero from '$lib/components/Hero.svelte';
 	import Projects from '$lib/components/Projects.svelte';
 	import Blog from '$lib/components/Blog.svelte';
@@ -20,6 +21,32 @@
 		setNameView(in_view);
 	}}
 />
-<Projects />
+<Saos
+	animation={'slide-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both'}
+	animation_out={'slide-out 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1 both'}
+	top={250}
+	bottom={50}
+>
+	<Projects />
+</Saos>
 <Blog />
 <Footer />
+
+<style>
+	@keyframes -global-slide-in {
+		0% {
+			transform: translateY(200px);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
+	@keyframes -global-slide-out {
+		0% {
+			transform: translateY(0);
+		}
+		100% {
+			transform: translateY(200px);
+		}
+	}
+</style>
