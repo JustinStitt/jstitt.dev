@@ -16,7 +16,7 @@
 	};
 </script>
 
-<h1>Ness Login</h1>
+<h1 class="hero">Ness Login</h1>
 
 <div class="vbox">
 	<input type="text" placeholder="password" bind:value={currently_entered_password} />
@@ -24,6 +24,10 @@
 </div>
 
 <style>
+	.hero {
+		margin-top: 50px;
+	}
+
 	input {
 		color: black;
 		width: 100%;

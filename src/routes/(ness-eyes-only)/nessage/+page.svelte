@@ -21,7 +21,7 @@
 	};
 </script>
 
-<h1>Ness' Eyes Only</h1>
+<h1 class="hero">Ness' Eyes Only</h1>
 <h2>Send a message to be displayed within Justin's terminal</h2>
 <div class="vbox">
 	<input
@@ -33,6 +33,9 @@
 </div>
 
 <style>
+	.hero {
+		margin-top: 50px;
+	}
 	input {
 		color: black;
 		width: 100%;
