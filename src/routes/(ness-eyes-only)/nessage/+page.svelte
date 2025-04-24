@@ -4,7 +4,15 @@
 		"belay is on; climb on! have fun, don't fall, climb on!",
 		'hi baby, i miss you a lot',
 		"i hope you're having a good day at work :)",
-		"let's go to canes tonight :P"
+    "let's go to canes tonight :P",
+    "I'm so full and I don't like day-old McDonalds",
+    "Sometimes I just gotta go beast mode on some cereal",
+    "We are two saucy broads!!!",
+    "*gurgles mouth wash* ... OOH, SPICY!",
+    "hello lover boy",
+    "TV WIT MY BOYFREN DANCE",
+    "me + you = love",
+    "you're my home"
 	];
 
 	const handleSendButton = async () => {
