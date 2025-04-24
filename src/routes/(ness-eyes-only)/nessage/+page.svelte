@@ -1,18 +1,22 @@
 <script>
-	let message;
+	let message = $state('');
+	const { data } = $props();
+	const last_line = data.last_line;
+	let shown_most_recent = $state(last_line);
+	let show_success = $state(false);
 	const placeholders = [
 		"belay is on; climb on! have fun, don't fall, climb on!",
 		'hi baby, i miss you a lot',
 		"i hope you're having a good day at work :)",
-    "let's go to canes tonight :P",
-    "I'm so full and I don't like day-old McDonalds",
-    "Sometimes I just gotta go beast mode on some cereal",
-    "We are two saucy broads!!!",
-    "*gurgles mouth wash* ... OOH, SPICY!",
-    "hello lover boy",
-    "TV WIT MY BOYFREN DANCE",
-    "me + you = love",
-    "you're my home"
+		"let's go to canes tonight :P",
+		"I'm so full and I don't like day-old McDonalds",
+		'Sometimes I just gotta go beast mode on some cereal',
+		'We are two saucy broads!!!',
+		'*gurgles mouth wash* ... OOH, SPICY!',
+		'hello lover boy',
+		'TV WIT MY BOYFREN DANCE',
+		'me + you = love',
+		"you're my home"
 	];
 
 	const handleSendButton = async () => {
@@ -26,6 +30,14 @@
 
 		const { valid } = await response.json();
 		console.log('sending message valid? : ', valid);
+		if (valid === true) {
+			shown_most_recent = message;
+			message = '';
+			show_success = true;
+			setTimeout(() => {
+				show_success = false;
+			}, 3000);
+		}
 	};
 </script>
 
@@ -37,13 +49,26 @@
 		type="text"
 		placeholder={placeholders[Math.floor(Math.random() * placeholders.length)]}
 	/>
-	<button onclick={handleSendButton}>Send</button>
+	<button onclick={handleSendButton} class:greyed-out={show_success}>
+		{#if show_success}
+			Sent Successfully
+		{:else}
+			Send
+		{/if}
+	</button>
+	<h1>Current message:</h1>
+	<h2>{shown_most_recent}</h2>
 </div>
 
 <style>
+	.greyed-out {
+		background-color: grey;
+	}
+
 	.hero {
 		margin-top: 50px;
 	}
+
 	input {
 		color: black;
 		width: 100%;
