@@ -1,0 +1,14 @@
+# $ sudo systemctl link <me>
+[Unit]
+Description=ness.jstitt.dev instance mainly for nessage feature
+[Install]
+WantedBy=multi-user.target
+[Service]
+Type=simple
+User=ubuntu
+PermissionsStartOnly=true
+Environment=PATH=/home/ubuntu/.nvm/versions/node/v23.11.0/bin
+WorkingDirectory=/home/ubuntu/repos/jstitt.dev/
+ExecStart=/home/ubuntu/repos/jstitt.dev/node_modules/vite/bin/vite.js preview --port 5085
+Restart=on-failure
+TimeoutSec=600
