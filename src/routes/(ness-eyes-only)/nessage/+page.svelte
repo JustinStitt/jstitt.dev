@@ -1,4 +1,5 @@
 <script>
+	import Timecard from '$lib/components/Timecard.svelte';
 	let message = $state('');
 	const { data } = $props();
 	const last_line = data.last_line;
@@ -39,6 +40,13 @@
 			}, 3000);
 		}
 	};
+
+	let date_now = $state(new Date());
+	const keys_lost_date = new Date('2025-04-22 03:43:06');
+
+	setInterval(() => {
+		date_now = new Date();
+	}, 1000);
 </script>
 
 <h1 class="hero">Ness' Eyes Only</h1>
@@ -49,18 +57,36 @@
 		type="text"
 		placeholder={placeholders[Math.floor(Math.random() * placeholders.length)]}
 	/>
-	<button onclick={handleSendButton} class:greyed-out={show_success}>
+	<button onclick={handleSendButton} class:greyed-out={show_success} class="text-zinc-50">
 		{#if show_success}
 			Sent Successfully
 		{:else}
 			Send
 		{/if}
 	</button>
-	<h1>Current message:</h1>
-	<h2>{shown_most_recent}</h2>
+	{#if shown_most_recent.length > 0}
+		<h1>Current message:</h1>
+		<h2>{shown_most_recent}</h2>
+	{/if}
+
+	<div class="grid">
+		<Timecard
+			message={'Time passed since Ness lost her keys'}
+			date_a={date_now}
+			date_b={keys_lost_date}
+		/>
+	</div>
 </div>
 
 <style>
+	.grid {
+		display: grid;
+		width: 100%;
+		gap: 5px;
+		grid-template-columns: repeat(auto-fit, 30%);
+		justify-content: center;
+	}
+
 	.greyed-out {
 		background-color: grey;
 	}
@@ -98,8 +124,12 @@
 	}
 
 	h2 {
-		color: lightgray;
 		font-style: italic;
 		font-size: 15px;
+		filter: opacity(0.8);
+	}
+
+	em {
+		font-weight: 800;
 	}
 </style>
