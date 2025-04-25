@@ -30,7 +30,7 @@
 		});
 
 		const { valid } = await response.json();
-		console.log('sending message valid? : ', valid);
+
 		if (valid === true) {
 			shown_most_recent = message;
 			message = '';
@@ -43,6 +43,7 @@
 
 	let date_now = $state(new Date());
 	const keys_lost_date = new Date('2025-04-22 03:43:06');
+	const couple_date = new Date('2023-02-09 01:23:56');
 
 	setInterval(() => {
 		date_now = new Date();
@@ -75,6 +76,11 @@
 			date_a={date_now}
 			date_b={keys_lost_date}
 		/>
+		<Timecard
+			message={"The amount of time we've been a couple"}
+			date_a={date_now}
+			date_b={couple_date}
+		/>
 	</div>
 </div>
 
@@ -83,8 +89,14 @@
 		display: grid;
 		width: 100%;
 		gap: 5px;
-		grid-template-columns: repeat(auto-fit, 30%);
+		grid-template-columns: repeat(auto-fit, 100%);
 		justify-content: center;
+	}
+
+	@media screen and (min-width: 580px) {
+		.grid {
+			grid-template-columns: repeat(auto-fit, 30%);
+		}
 	}
 
 	.greyed-out {
