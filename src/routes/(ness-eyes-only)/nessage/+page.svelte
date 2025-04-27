@@ -17,7 +17,8 @@
 		'hello lover boy',
 		'TV WIT MY BOYFREN DANCE',
 		'me + you = love',
-		"you're my home"
+		"you're my home",
+		'we r gonna be fit and athletic together'
 	];
 
 	const handleSendButton = async () => {
@@ -42,9 +43,9 @@
 	};
 
 	let date_now = $state(new Date());
-	const keys_lost_date = new Date('2025-04-22 03:43:06');
-	const couple_date = new Date('2023-02-09 01:23:56');
-	const ness_move_in_date = new Date('2025-05-20 07:00:00');
+	const keys_lost_date = new Date('2025-04-22 03:43:06Z');
+	const couple_date = new Date('2023-02-09 01:23:56Z');
+	const ness_move_in_date = new Date('2025-05-20 19:00:00Z');
 
 	setInterval(() => {
 		date_now = new Date();
@@ -145,9 +146,5 @@
 		font-style: italic;
 		font-size: 15px;
 		filter: opacity(0.8);
-	}
-
-	em {
-		font-weight: 800;
 	}
 </style>
