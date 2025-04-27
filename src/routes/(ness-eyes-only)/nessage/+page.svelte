@@ -44,6 +44,7 @@
 	let date_now = $state(new Date());
 	const keys_lost_date = new Date('2025-04-22 03:43:06');
 	const couple_date = new Date('2023-02-09 01:23:56');
+	const ness_move_in_date = new Date('2025-05-20 07:00:00');
 
 	setInterval(() => {
 		date_now = new Date();
@@ -80,6 +81,11 @@
 			message={"The amount of time we've been a couple"}
 			date_a={date_now}
 			date_b={couple_date}
+		/>
+		<Timecard
+			message={'Time until Ness moves in with Justin'}
+			date_a={ness_move_in_date}
+			date_b={date_now}
 		/>
 	</div>
 </div>

@@ -13,10 +13,14 @@
 
 <div class="box">
 	<h1>{message}</h1>
-	<h2>
-		<em>{time_obj.days} </em> days {time_obj.hours} hours {time_obj.minutes} minutes {time_obj.seconds}
-		seconds
-	</h2>
+	{#if time_delta < 0.0}
+		<h2>~~~~~~</h2>
+	{:else}
+		<h2>
+			<em>{time_obj.days} </em> days {time_obj.hours} hours {time_obj.minutes} minutes {time_obj.seconds}
+			seconds
+		</h2>
+	{/if}
 </div>
 
 <style>
