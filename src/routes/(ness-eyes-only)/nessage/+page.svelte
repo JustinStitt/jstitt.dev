@@ -18,7 +18,8 @@
 		'TV WIT MY BOYFREN DANCE',
 		'me + you = love',
 		"you're my home",
-		'we r gonna be fit and athletic together'
+		'we r gonna be fit and athletic together',
+		'mah babay'
 	];
 
 	const handleSendButton = async () => {
@@ -43,9 +44,11 @@
 	};
 
 	let date_now = $state(new Date());
+	// keep relative to UTC (add 7 hours for PST)
 	const keys_lost_date = new Date('2025-04-22 03:43:06Z');
 	const couple_date = new Date('2023-02-09 01:23:56Z');
 	const ness_move_in_date = new Date('2025-05-20 19:00:00Z');
+	const ness_graduation_date = new Date('2025-05-20 00:00:00Z');
 
 	setInterval(() => {
 		date_now = new Date();
@@ -86,6 +89,11 @@
 		<Timecard
 			message={'Time until Ness moves in with Justin'}
 			date_a={ness_move_in_date}
+			date_b={date_now}
+		/>
+		<Timecard
+			message={'Time until Ness graduates'}
+			date_a={ness_graduation_date}
 			date_b={date_now}
 		/>
 	</div>
