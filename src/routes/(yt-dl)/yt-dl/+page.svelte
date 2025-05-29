@@ -1,6 +1,7 @@
 <script>
 	import { invalidateAll } from '$app/navigation';
 	import VideoCard from '$lib/components/VideoCard.svelte';
+	import AsciiLoadingBar from '$lib/components/AsciiLoadingBar.svelte';
 	const { data } = $props();
 	console.log('got data: ', data);
 
@@ -58,6 +59,9 @@
 		>
 		{#if currently_downloading}
 			<h2 class="italic">Downloading...</h2>
+		{/if}
+		{#if currently_downloading}
+			<AsciiLoadingBar length={10} />
 		{/if}
 		<h2>{download_response}</h2>
 	</div>
