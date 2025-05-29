@@ -9,6 +9,9 @@
 	let currently_downloading = $state(false);
 	let downloaded_already = $state(false);
 
+	let deleted = $state(false);
+	let failed_to_delete = $state(false);
+
 	const handleDownload = async () => {
 		if (downloaded_already) return;
 		currently_downloading = true;
@@ -48,41 +51,72 @@
 			downloaded_already = false;
 		}, 15000);
 	};
+
+	const handleDelete = async () => {
+		if (failed_to_delete) return;
+		const delete_url = '/yt-dl-api/delete_video';
+		const response = await fetch(delete_url + `?video_name=${encodeURIComponent(name)}`);
+		if (response.ok) deleted = true;
+		else {
+			failed_to_delete = true;
+			setTimeout(() => {
+				failed_to_delete = false;
+			}, 5000);
+		}
+	};
 </script>
 
-<div class="flex w-full flex-row justify-between rounded-lg bg-gray-200 p-4 dark:bg-slate-600">
-	<div class="flex w-full flex-row items-center justify-between">
+<div
+	class="flex w-full flex-row justify-between rounded-lg bg-gray-200 p-4 transition-all duration-300 ease-out dark:bg-slate-600"
+	style={deleted ? `text-decoration: line-through; opacity: 0.5;` : ''}
+>
+	<div class="relative flex w-full flex-row items-center justify-between">
 		<div class="flex flex-col">
 			<h1 class="break-all font-bold">{name}</h1>
-			<h2 class="italic">{size_bytes} bytes</h2>
+			<div class="flex flex-row">
+				<h2 class="italic">{humanFileSize(size_bytes)}</h2>
+				{#if !deleted}
+					<button onclick={handleDelete} class="mx-3 rounded-lg underline">
+						{#if failed_to_delete}
+							Failed to delete. Try again later.
+						{:else}
+							Delete
+						{/if}
+					</button>
+				{/if}
+			</div>
 		</div>
-		<button
-			class="relative text-nowrap rounded-lg bg-violet-500
+		{#if !deleted}
+			<button
+				class="relative text-nowrap rounded-lg bg-violet-500
     p-3 text-zinc-50
     hover:bg-green-300
     active:scale-110
       active:bg-green-300
       disabled:cursor-not-allowed disabled:bg-gray-500 disabled:hover:bg-gray-300 disabled:active:scale-100"
-			disabled={currently_downloading | downloaded_already}
-			onclick={handleDownload}
-		>
-			{#if !downloaded_already}
-				<span>
-					{!currently_downloading
-						? 'Download'
-						: humanFileSize(current_bytes_downloaded).toString() +
-							' / ' +
-							humanFileSize(total_bytes_size).toString()}</span
-				>
-			{:else}
-				Downloaded...
-			{/if}
-			{#if currently_downloading}
-				<div
-					class="absolute left-0 top-0 h-full w-6 rounded-lg bg-green-500 opacity-15 transition-all duration-500 ease-out"
-					style={`width: ${Math.floor((current_bytes_downloaded / total_bytes_size) * 100)}%;`}
-				></div>
-			{/if}
-		</button>
+				disabled={currently_downloading | downloaded_already}
+				onclick={handleDownload}
+			>
+				{#if !downloaded_already}
+					<span>
+						{!currently_downloading
+							? 'Download'
+							: humanFileSize(current_bytes_downloaded).toString() +
+								' / ' +
+								humanFileSize(total_bytes_size).toString()}</span
+					>
+				{:else}
+					Downloaded...
+				{/if}
+				{#if currently_downloading}
+					<div
+						class="absolute left-0 top-0 h-full w-6 rounded-lg bg-green-500 opacity-15 transition-all duration-500 ease-out"
+						style={`width: ${Math.floor((current_bytes_downloaded / total_bytes_size) * 100)}%;`}
+					></div>
+				{/if}
+			</button>
+		{:else}
+			<h1 class="absolute right-0 italic no-underline">Deleted</h1>
+		{/if}
 	</div>
 </div>
