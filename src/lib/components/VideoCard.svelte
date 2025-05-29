@@ -12,10 +12,7 @@
 	const handleDownload = async () => {
 		if (downloaded_already) return;
 		currently_downloading = true;
-		// const response = await fetch(
-		// 	`/api/download-specific-video?video_name=${encodeURIComponent(name)}`
-		// );
-		const YTDL_API_URL = 'http://localhost:8000/download_specific';
+		const YTDL_API_URL = '/yt-dl-api/download_specific';
 		const response = await fetch(YTDL_API_URL + `?video_name=${encodeURIComponent(name)}`);
 		const content_length = response.headers.get('Content-Length');
 		total_bytes_size = content_length;
@@ -41,7 +38,7 @@
 		a.href = url;
 		a.download = name;
 		document.body.appendChild(a);
-		// a.click();
+		a.click();
 		document.body.removeChild(a);
 		URL.revokeObjectURL(url);
 		currently_downloading = false;
