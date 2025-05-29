@@ -53,7 +53,7 @@
 <div class="flex w-full flex-row justify-between rounded-lg bg-gray-200 p-4 dark:bg-slate-600">
 	<div class="flex w-full flex-row items-center justify-between">
 		<div class="flex flex-col">
-			<h1 class="font-bold">{name}</h1>
+			<h1 class="break-all font-bold">{name}</h1>
 			<h2 class="italic">{size_bytes} bytes</h2>
 		</div>
 		<button
