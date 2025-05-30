@@ -21,7 +21,7 @@
 	class="fixed left-0 top-0 z-40 hidden w-full bg-zinc-50/80 backdrop-blur-sm lg:flex dark:bg-zinc-900/80"
 >
 	<div class="container mx-auto px-4">
-		<ul class="flex h-16 items-center justify-center gap-8">
+		<ul class="mr-12 flex h-16 items-center justify-center gap-8">
 			<div class="mr-auto flex min-w-96">
 				{#key name}
 					<a class="font-mono text-3xl font-bold" href="/" in:fade>
