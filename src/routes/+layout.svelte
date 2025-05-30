@@ -55,7 +55,7 @@
 			{/if}
 		</button>
 
-		<Nav {isMenuOpen} {is_name_in_view} />
+		<Nav bind:isMenuOpen {is_name_in_view} />
 		<main class="container mx-auto px-4 py-8">
 			{@render children()}
 		</main>

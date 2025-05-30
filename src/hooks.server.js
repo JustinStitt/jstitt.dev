@@ -12,7 +12,7 @@ export async function handle({ event, resolve }) {
     throw redirect(302, "/ness-login");
   }
 
-  if (!has_access && event.route_id.startsWith("/(yt-dl)")) {
+  if (!has_access && event.route.id.startsWith("/(yt-dl)")) {
     throw redirect(302, "/ness-login");
   }
 

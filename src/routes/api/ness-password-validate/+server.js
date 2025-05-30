@@ -14,7 +14,7 @@ export async function POST({ request, cookies }) {
       sameSite: "strict",
     });
   }
-  return json({ valid: valid, redirectUrl: "/nessage" }, {
+  return json({ valid: valid, redirectUrl: "/" }, {
     status: valid ? 200 : 403,
   });
 }

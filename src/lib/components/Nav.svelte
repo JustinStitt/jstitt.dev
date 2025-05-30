@@ -2,15 +2,17 @@
 	import { fade, fly } from 'svelte/transition';
 
 	// Props
-	let { isMenuOpen, is_name_in_view } = $props();
+	let { isMenuOpen = $bindable(), is_name_in_view } = $props();
 
 	let name = $derived(is_name_in_view ? 'JS' : 'Justin Stitt');
 
 	// Navigation links
 	const links = [
 		{ href: '/', label: 'Home' },
-		{ href: '#projects', label: 'Projects' },
-		{ href: '#blog', label: 'Blog' }
+		{ href: '/#projects', label: 'Projects' },
+		{ href: '/#blog', label: 'Blog' },
+		{ href: '/nessage', label: 'Nessage' },
+		{ href: '/yt-dl', label: 'Youtube downloader' }
 	];
 </script>
 
@@ -53,6 +55,9 @@
 					<a
 						href={link.href}
 						class="text-xl font-medium transition-colors hover:text-zinc-600 dark:hover:text-zinc-400"
+						onclick={() => {
+							isMenuOpen = false;
+						}}
 					>
 						{link.label}
 					</a>
