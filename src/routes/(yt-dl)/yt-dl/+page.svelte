@@ -3,7 +3,6 @@
 	import VideoCard from '$lib/components/VideoCard.svelte';
 	import AsciiLoadingBar from '$lib/components/AsciiLoadingBar.svelte';
 	const { data } = $props();
-	console.log('got data: ', data);
 
 	let input_url = $state('');
 	let download_response = $state('');

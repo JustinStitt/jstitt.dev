@@ -2,19 +2,26 @@
 	import '../app.css';
 	import { Sun, Moon, Menu, X } from 'lucide-svelte';
 	import Nav from '$lib/components/Nav.svelte';
-	import { setContext, getContext } from 'svelte';
+	import { setContext, onMount } from 'svelte';
 
-	let { children } = $props();
+	let { children, data } = $props();
 
-	let theme = $state('dark');
 	// Mobile menu state
 	let isMenuOpen = $state(false);
 
 	let is_name_in_view = $state(true);
 
-	// Toggle theme
+	let theme = $state(data.theme);
+
+	const setCookie = (key, value, years) => {
+		const expiration_date = new Date();
+		expiration_date.setDate(expiration_date.getDate() + 365 * years);
+		document.cookie = `${key}=${value}; expires=${expiration_date.toUTCString()};`;
+	};
+
 	const toggleTheme = () => {
 		theme = theme === 'dark' ? 'light' : 'dark';
+		setCookie('theme', theme, 24);
 	};
 
 	const setNameView = (in_view) => {
